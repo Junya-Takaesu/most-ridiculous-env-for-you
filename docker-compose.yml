@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    ports:
+      - "4567:4567"
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ruby myapp.rb
+    # web サーバー(sinatraが勝手に動かすやつ) が 0.0.0.0 にバインドされていない場合、
+    # "host" ネットワークを使うことで、ホストとネットワークを一体化できる(つまり localhost でコンテナ上の sinatra にアクセスできる)
+    # network_mode: host
