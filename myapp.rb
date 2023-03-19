@@ -1,6 +1,7 @@
 # myapp.rb
 require 'sinatra'
-require "active_record"
+
+set :bind, '0.0.0.0'
 
 get '/' do
   'Hello world!'
